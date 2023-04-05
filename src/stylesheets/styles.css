@@ -1,0 +1,19 @@
+body{
+    
+    background-color:lightblue;
+
+}
+
+.itemContainer{
+    display:grid;
+    grid-template-columns: 1fr;
+    border:solid;
+}
+
+.item{
+    border:solid;
+}
+
+.order-input{
+    display:flex;
+}
