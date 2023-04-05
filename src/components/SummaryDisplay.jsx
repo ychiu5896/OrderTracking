@@ -3,16 +3,16 @@ import NewOrder from './NewOrder.jsx';
 
 class SummaryDisplay extends Component{
 
-render(){
+  render(){
     return(
-        <div className="itemContainer">
-            <h1>Summary</h1>
-            <button onClick={this.props.onClick}>{this.props.count}</button>
-            <h3>Monthly Total</h3>
-            <NewOrder />
-        </div>
-    )
-}
+      <div className="itemContainer">
+        <h1>Summary</h1>
+        <button onClick={this.props.onClick}>{this.props.count}</button>
+        <h3>Monthly Total</h3>
+        <NewOrder />
+      </div>
+    );
+  }
 
 }
 
