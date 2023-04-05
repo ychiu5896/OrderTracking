@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const PORT = 3000;
+const orderRoute = require('./routes/orders');
 
 
 app.use(express.json());
@@ -12,6 +13,8 @@ app.use(express.urlencoded({extended:true}));
 app.get('/',(req,res) => {
   res.status(200).sendFile(path.resolve(__dirname,'../src/index.html'));
 });
+
+app.use('/orders', orderRoute);
 
 app.use((err, req, res, next) => {
   const defaultErr = {
