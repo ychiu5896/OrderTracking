@@ -3,51 +3,51 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 
-    entry: './src/index.js',
-    mode: process.env.NODE_ENV,
+  entry: './src/index.js',
+  mode: process.env.NODE_ENV,
 
-    output: {
-        path: path.join(__dirname , '/dist'),
-        filename : 'bundle.js',
+  output: {
+    path: path.join(__dirname , '/dist'),
+    filename : 'bundle.js',
+  },
+  devServer:{
+    static: {
+      directory: path.resolve(__dirname,'dist'),
+      publicPath:'/dist',
     },
-         devServer:{
-        static: {
-            directory: path.resolve(__dirname,'dist'),
-            publicPath:'/build',
-        },
-        proxy:{
-            'api': 'http://localhost:3000'
-        }
-    },
-
-    plugins: [
-        new HTMLWebpackPlugin({
-            title:'Development',
-            template: './src/index.html'
-        })
-    ],
-
-
-    module: {
-        rules: [
-            {
-                test: /.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env', '@babel/preset-react']
-                    }
-                }
-
-            },
-            {
-                test: /.(css|scss)$/,
-                exclude: /node-modules/,
-                use:['style-loader', 'css-loader']
-            }
-
-        ]
+    proxy:{
+      '/**': 'http://localhost:3000'
     }
+  },
 
-}
+  plugins: [
+    new HTMLWebpackPlugin({
+      title:'Development',
+      template: './src/index.html'
+    })
+  ],
+
+
+  module: {
+    rules: [
+      {
+        test: /.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react']
+          }
+        }
+
+      },
+      {
+        test: /.(css|scss)$/,
+        exclude: /node-modules/,
+        use:['style-loader', 'css-loader']
+      }
+
+    ]
+  }
+
+};

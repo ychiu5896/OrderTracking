@@ -3,11 +3,11 @@ import './stylesheets/styles.css';
 import TotalDisplay from './components/TotalDisplay.jsx';
 
 const App = (props) => {
-    return(
-        <div>
-            <TotalDisplay/>
-        </div>
-    )
+  return(
+    <div>
+      <TotalDisplay/>
+    </div>
+  );
 
 };
 

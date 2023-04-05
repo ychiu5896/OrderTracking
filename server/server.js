@@ -8,7 +8,7 @@ const orderRoute = require('./routes/orders');
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-// app.use(express.static(path.resolve(path.resolve(__dirname,'../src'))));
+app.use(express.static(path.resolve(__dirname,'../src')));
 
 app.get('/',(req,res) => {
   res.status(200).sendFile(path.resolve(__dirname,'../src/index.html'));
