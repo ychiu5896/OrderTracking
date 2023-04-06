@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 
 class ItemDetails extends Component{
@@ -22,8 +23,23 @@ class ItemDetails extends Component{
             Details:{this.props.orderlist.details}
         </div>
         <button id={this.props.orderlist.order_id} onClick={this.props.deleteData}>Delete</button>
-        <button>Update</button>
+ 
+        <button>
+          {/* <Link to={`/${this.props.orderlist.order_id}`} 
+            state={{
+              date: this.props.orderlist.date,
+              order_id: this.props.orderlist.order_id,
+              location: this.props.orderlist.location,
+              price: this.props.orderlist.price,
+              details:this.props.orderlist.details
+            }}
+          > */}
+            Update
+          {/* </Link> */}
+        </button>
+
       </div>
+    
     );
 
   }

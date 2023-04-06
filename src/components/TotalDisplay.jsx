@@ -51,7 +51,18 @@ class TotalDisplay extends Component{
       .catch((err) => console.log('Component Did not Mount, get Order ran into an error:',err));
   }
 
+
+  
+
   submitData(){
+    // --------- ADD DATA TO FRONT END ---------------
+
+    const newState = this.state.order.unshift(this.state.newData);
+    this.setState({...newState});
+
+
+
+    // ------ADD DATA TO BACK END ------------
     fetch('/orders/',{
       method: 'POST',
       headers: {
@@ -68,6 +79,21 @@ class TotalDisplay extends Component{
 
   deleteData(e){
     console.log(e.target.id);
+    const id = e.target.id;
+    // --------------- DELETE FOR FRONT END -----------------------
+    const newOrder = [...this.state.order];
+    // Traverse the copy of the order array
+    for (const i in newOrder){
+      // Find the index where the order_id match with the e.target.id
+      if (newOrder[i].order_id == e.target.id) {
+        newOrder.splice(i,1);
+      }
+    }
+ 
+    this.setState({
+      ...this.state, order: newOrder
+    });
+    // --------------- DELETE FOR BACKEND -------------------------
     fetch('/orders/',{
       method:'DELETE',
       headers:{
@@ -81,6 +107,8 @@ class TotalDisplay extends Component{
         console.log('Deleting data ran into an error:',err);
       });
   }
+
+
 
 
 

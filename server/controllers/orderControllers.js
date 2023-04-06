@@ -22,10 +22,11 @@ orderControllers.getOrders = (req,res,next) => {
 orderControllers.createOrders = (req,res,next) => {
   const {date,order_id,location,price,details} = req.body;
   const insertData = [date,order_id,location, price, details];
-  const queryStr = 'INSERT INTO orderlist (date,order_id,location,price,details) VALUES ($1,$2,$3,$4,$5)';
+  const queryStr = 'INSERT INTO orderlist (date,order_id,location,price,details) VALUES ($1,$2,$3,$4,$5) RETURNING *';
   db.query(queryStr,insertData)
     .then((data) => {
-      res.locals.createdOrder = data;
+      res.locals.createdOrder = data.rows[0];
+      console.log('CREATE',res.locals.createOrders);
       next();
     })
     .catch((err) => {
