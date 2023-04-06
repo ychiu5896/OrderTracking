@@ -18,7 +18,9 @@ class TotalDisplay extends Component{
     };
     this.onClick = this.onClick.bind(this);
     this.submitData = this.submitData.bind(this);
+    this.deleteData = this.deleteData.bind(this);
     this.handleChange=this.handleChange.bind(this);
+
   }
 
   handleChange(e){
@@ -64,13 +66,29 @@ class TotalDisplay extends Component{
       });
   }
 
+  deleteData(e){
+    console.log(e.target.id);
+    fetch('/orders/',{
+      method:'DELETE',
+      headers:{
+        'Content-Type': 'Application/JSON'
+      },
+      body: JSON.stringify({order_id: Number(e.target.id)})
+    }
+    ).then((res) => res.json())
+      .then((data)=> console.log(e.target.id))
+      .catch((err)=>{
+        console.log('Deleting data ran into an error:',err);
+      });
+  }
+
 
 
   render(){
     return(
       <div>
         <SummaryDisplay count={this.state.count} onClick={this.onClick} submitData={this.submitData} handleChange={this.handleChange}/>
-        <OrderItem order={this.state.order}/>
+        <OrderItem order={this.state.order} deleteData={this.deleteData}/>
       </div>
     );
   }

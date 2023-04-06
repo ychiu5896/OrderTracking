@@ -8,8 +8,11 @@ router.get('/', orderControllers.getOrders, (req,res) => {
 } );
 
 router.post('/', orderControllers.createOrders, (req,res) => {
-  return res.sendStatus(200).json(res.locals.createOrders);
+  return res.status(200).json(res.locals.createOrders);
 });
 
+router.delete('/', orderControllers.deleteOrder,(req,res) => {
+  return res.status(200).json(res.locals.deleteOrder);
+});
 
 module.exports = router;

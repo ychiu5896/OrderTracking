@@ -8,7 +8,7 @@ class OrderItem extends Component{
     const current = [];
     for(let i = 0; i < this.props.order.length; i++){
       current.push(
-        <ItemDetails orderlist={this.props.order[i]}/>
+        <ItemDetails key={i} index={i} deleteData={this.props.deleteData} orderlist={this.props.order[i] }/>
       ); 
     }
     

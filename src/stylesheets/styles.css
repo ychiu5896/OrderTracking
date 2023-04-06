@@ -17,3 +17,7 @@ body{
 .order-input{
     display:flex;
 }
+
+.dots{
+    background:transparent;
+}

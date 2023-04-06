@@ -2,12 +2,10 @@ import React, {Component} from 'react';
 
 
 class ItemDetails extends Component{
-
   render(){
     return(
 
       <div className="item">
-        <img src='../images/dots.png'/>
         <div>
             Date: {this.props.orderlist.date}
         </div>
@@ -23,6 +21,8 @@ class ItemDetails extends Component{
         <div>
             Details:{this.props.orderlist.details}
         </div>
+        <button id={this.props.orderlist.order_id} onClick={this.props.deleteData}>Delete</button>
+        <button>Update</button>
       </div>
     );
 

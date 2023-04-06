@@ -37,4 +37,25 @@ orderControllers.createOrders = (req,res,next) => {
 
 };
 
+
+orderControllers.deleteOrder = (req,res,next) => {
+  console.log(req.body);
+  // const {date,order_id,location,price,details} = req.body;
+  const condition = req.body.order_id;
+  const queryStr= 'DELETE FROM orderlist WHERE order_id=$1';
+  db.query(queryStr,[condition])
+    .then((data) => {
+      res.locals.deleteOrder = data;
+      next();
+    })
+    .catch((err) => {
+      next({
+        log: `orderControllers.deleteOrder : ERROR ${err}`,
+        message: {err: 'Error ocurred in orderControllers.deleteOrder'}
+      });
+    });
+
+};
+
+
 module.exports = orderControllers;
