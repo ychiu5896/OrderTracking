@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const PORT = 3000;
 const orderRoute = require('./routes/orders');
+const updateRoute = require('./routes/update');
 
 
 app.use(express.json());
@@ -15,6 +16,7 @@ app.get('/',(req,res) => {
 });
 
 app.use('/orders', orderRoute);
+app.use('/update',updateRoute);
 
 app.use((err, req, res, next) => {
   const defaultErr = {

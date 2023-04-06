@@ -114,7 +114,7 @@ class TotalDisplay extends Component{
 
   render(){
     return(
-      <div>
+      <div className='outside_container'>
         <SummaryDisplay count={this.state.count} onClick={this.onClick} submitData={this.submitData} handleChange={this.handleChange}/>
         <OrderItem order={this.state.order} deleteData={this.deleteData}/>
       </div>

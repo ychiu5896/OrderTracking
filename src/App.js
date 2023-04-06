@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './stylesheets/styles.css';
 import TotalDisplay from './components/TotalDisplay.jsx';
 import { Switch, Route } from 'react-router-dom';
+import NewOrder from './components/OrderUpdate.jsx';
 
 // const App = (props) => {
 //   return(
@@ -20,9 +21,26 @@ import { Switch, Route } from 'react-router-dom';
 const App = (props) => {
   
   return(
-    <div>
-      <TotalDisplay/>
-    </div>
+
+    <Switch>
+      <Route
+        exact
+        path="/"
+        component={
+          () => <TotalDisplay/>
+        }
+      />
+      <Route
+        exact
+        path="/:id"
+        component={
+          () => <NewOrder/>
+        }
+      />
+
+    </Switch>
+
+
   );
 
 };

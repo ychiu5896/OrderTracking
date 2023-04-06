@@ -6,7 +6,7 @@ class OrderItem extends Component{
   render(){
     console.log('ORDER in ORDERItem', this.props.order);
     const current = [];
-    for(const i in this.props.order){
+    for(let i = 0; i < this.props.order.length; i++){
       current.push(
         <ItemDetails key={i} index={i} deleteData={this.props.deleteData} orderlist={this.props.order[i] }/>
       ); 

@@ -25,7 +25,7 @@ class ItemDetails extends Component{
         <button id={this.props.orderlist.order_id} onClick={this.props.deleteData}>Delete</button>
  
         <button>
-          {/* <Link to={`/${this.props.orderlist.order_id}`} 
+          <Link to={`/${this.props.orderlist.order_id}`} 
             state={{
               date: this.props.orderlist.date,
               order_id: this.props.orderlist.order_id,
@@ -33,9 +33,9 @@ class ItemDetails extends Component{
               price: this.props.orderlist.price,
               details:this.props.orderlist.details
             }}
-          > */}
+          > 
             Update
-          {/* </Link> */}
+          </Link>
         </button>
 
       </div>
