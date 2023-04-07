@@ -20,6 +20,7 @@ class TotalDisplay extends Component{
     this.submitData = this.submitData.bind(this);
     this.deleteData = this.deleteData.bind(this);
     this.handleChange=this.handleChange.bind(this);
+    this.totalCount = this.totalCount.bind(this);
 
   }
 
@@ -40,6 +41,16 @@ class TotalDisplay extends Component{
     });
   }
 
+  componentDidUpdate(){
+    let total = 0;
+    for(const current of this.state.order){
+      total+=current.price;
+    }
+    if(this.state.count !== total) {
+      this.setState({...this.state,count:total});
+    }
+  }
+
   componentDidMount(){
     fetch('/orders/')
       .then((res) => res.json())
@@ -51,8 +62,10 @@ class TotalDisplay extends Component{
       .catch((err) => console.log('Component Did not Mount, get Order ran into an error:',err));
   }
 
-
-  
+  totalCount (value){
+    console.log(value);
+    this.setState({...this.state,count:value});
+  }
 
   submitData(){
     // --------- ADD DATA TO FRONT END ---------------
@@ -115,8 +128,8 @@ class TotalDisplay extends Component{
   render(){
     return(
       <div className='outside_container'>
-        <SummaryDisplay count={this.state.count} onClick={this.onClick} submitData={this.submitData} handleChange={this.handleChange}/>
-        <OrderItem order={this.state.order} deleteData={this.deleteData}/>
+        <SummaryDisplay count={this.state.count} order={this.state.order} onClick={this.onClick} submitData={this.submitData} handleChange={this.handleChange}/>
+        <OrderItem totalCount = {this.state} order={this.state.order} deleteData={this.deleteData}/>
       </div>
     );
   }

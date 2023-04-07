@@ -5,9 +5,13 @@ import React, {Component} from 'react';
 class NewOrder extends Component{
 
   render(){
-
+    console.log(this.props.count);
     return(
       <div className="itemContainer">
+        <div className='order-input'>
+          <h3>Monthly Total:</h3>
+          <h3> $ {this.props.count}.00</h3>
+        </div>
         <div className= "order-input">
           <p>Date:</p>
           <input className='input_box' id='date' type = 'text' onChange={this.props.handleChange}/>

@@ -66,7 +66,7 @@ class OrderUpdate extends Component {
    
 
     return(
-      <div className="itemContainer">
+      <div className="updateContainer">
         <div className= "order-input">
           <p>Date:</p>
           <input id='date' type = 'text' value={this.state.newData.date} onChange={this.handleChange}/>
@@ -87,7 +87,7 @@ class OrderUpdate extends Component {
           <p>Details:</p>
           <input id='details' type = 'text'  value={this.state.newData.details} onChange={this.handleChange}/>
         </div>
-        <button onClick={this.submitUpdate}>
+        <button className= 'update_button' onClick={this.submitUpdate}>
           <Link to={'/'}>
                 Update Order
           </Link>
