@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './stylesheets/styles.css';
 import TotalDisplay from './components/TotalDisplay.jsx';
-import { Switch, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import NewOrder from './components/OrderUpdate.jsx';
 
 // const App = (props) => {
@@ -22,7 +22,7 @@ const App = (props) => {
   
   return(
 
-    <Switch>
+    <Routes>
       <Route
         exact
         path="/"
@@ -38,7 +38,7 @@ const App = (props) => {
         }
       />
 
-    </Switch>
+    </Routes>
 
 
   );

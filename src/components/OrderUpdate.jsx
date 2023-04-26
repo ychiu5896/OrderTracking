@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import {Link} from 'react-router-dom';
 // import {useLocation} from 'react-router-dom';
 
