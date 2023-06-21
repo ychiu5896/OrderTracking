@@ -100,4 +100,4 @@ class OrderUpdate extends Component {
 
 
 
-export default withRouter(OrderUpdate);
+export default OrderUpdate;
