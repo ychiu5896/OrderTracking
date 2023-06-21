@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './stylesheets/styles.css';
 import TotalDisplay from './components/TotalDisplay.jsx';
 import { Routes, Route } from 'react-router-dom';
-import NewOrder from './components/OrderUpdate.jsx';
+import OrderUpdate from './components/OrderUpdate.jsx';
 
 
 
@@ -12,7 +12,7 @@ const App = (props) => {
   <div>
     <Routes>
       <Route path="/" element={<TotalDisplay/>}/>
-      <Route path="/:id"element={<NewOrder/>}/> 
+      <Route path="/:id"element={<OrderUpdate/>}/> 
     </Routes>
   </div>
   );

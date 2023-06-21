@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {withRouter} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 // import {useLocation} from 'react-router-dom';
 
@@ -33,7 +33,7 @@ class OrderUpdate extends Component {
   }
 
   componentDidMount(){
-    const {id} = this.props.match.params;
+    const {id} = useParams();
     console.log(id);
     fetch(`/update/${id}`)
       .then((res) => res.json())
@@ -45,7 +45,7 @@ class OrderUpdate extends Component {
   }
 
   submitUpdate(){
-    const {id} = this.props.match.params;
+    const {id} = useParams();
     fetch(`/update/${id}`,{
       method: 'PUT',
       headers: {
