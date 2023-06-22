@@ -26,7 +26,7 @@ orderControllers.createOrders = (req,res,next) => {
   db.query(queryStr,insertData)
     .then((data) => {
       res.locals.createdOrder = data.rows[0];
-      console.log('CREATE',res.locals.createOrders);
+      console.log('Created',res.locals.createdOrder);
       next();
     })
     .catch((err) => {

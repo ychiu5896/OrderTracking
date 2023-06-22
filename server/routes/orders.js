@@ -8,7 +8,7 @@ router.get('/', orderControllers.getOrders, (req,res) => {
 } );
 
 router.post('/', orderControllers.createOrders, (req,res) => {
-  return res.status(200).json(res.locals.createOrders);
+  return res.status(200).json(res.locals.createdOrder);
 });
 
 router.delete('/', orderControllers.deleteOrder,(req,res) => {
