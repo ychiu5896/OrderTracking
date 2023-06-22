@@ -50,7 +50,7 @@ class OrderUpdate extends Component {
       body: JSON.stringify([this.state.newData])
     })
       .then((res) => res.json())
-      .then((data)=>console.log(data))
+      .then((data)=> window.location.href='/')
       .catch((err)=>{
         console.log('Posting data ran into an error:',err);
       });
@@ -83,9 +83,7 @@ class OrderUpdate extends Component {
           <input id='details' type = 'text'  value={this.state.newData.details} onChange={this.handleChange}/>
         </div>
         <button className= 'update_button' onClick={this.submitUpdate}>
-          <Link to={'/'}>
                 Update Order
-          </Link>
         </button>
       </div>
     );
