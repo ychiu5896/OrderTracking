@@ -8,8 +8,6 @@ function Params(){
         <div>
             <OrderUpdate id={id}/>
         </div>
-
     )
-
 }
 export default Params;
