@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {useParams} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 // import {useLocation} from 'react-router-dom';
 
@@ -22,19 +21,16 @@ class OrderUpdate extends Component {
   
 
   handleChange(e){
-    const {id} = e.target;
-    console.log(id);
+    const {id} = e.target;;
     const {value} = e.target;
-    console.log(value);
     this.setState({
       newData:{...this.state.newData,[id]:value}
     });
-    console.log(this.state.newData);
   }
 
   componentDidMount(){
-    const {id} = useParams();
-    console.log(id);
+    console.log(this.props)
+    const {id} = this.props;
     fetch(`/update/${id}`)
       .then((res) => res.json())
       .then((data) =>{
@@ -45,7 +41,7 @@ class OrderUpdate extends Component {
   }
 
   submitUpdate(){
-    const {id} = useParams();
+    const {id} = this.props;
     fetch(`/update/${id}`,{
       method: 'PUT',
       headers: {
@@ -62,7 +58,6 @@ class OrderUpdate extends Component {
 
 
   render(){
-    console.log(this.props);
    
 
     return(
