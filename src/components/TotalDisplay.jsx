@@ -128,6 +128,7 @@ class TotalDisplay extends Component{
   render(){
     return(
       <div className='outside_container'>
+        <button className='google-icon' >Google</button>
         <SummaryDisplay count={this.state.count} order={this.state.order} onClick={this.onClick} submitData={this.submitData} handleChange={this.handleChange}/>
         <OrderItem totalCount = {this.state} order={this.state.order} deleteData={this.deleteData}/>
       </div>
