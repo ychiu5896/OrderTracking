@@ -5,9 +5,8 @@ import { Routes, Route } from 'react-router-dom';
 import Params from './components/Params.jsx';
 
 
-
-//////////////////////////TEST///////////////////
 const App = (props) => {
+
   return(
   <div>
     <Routes>
