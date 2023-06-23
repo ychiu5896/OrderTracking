@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import OrderItem from './OrderItem.jsx';
 import SummaryDisplay from './SummaryDisplay.jsx';
+import googleImg from '../assets/GoogleImage.png';
 
 class TotalDisplay extends Component{
   constructor(props){
@@ -128,7 +129,10 @@ class TotalDisplay extends Component{
   render(){
     return(
       <div className='outside_container'>
-        <button className='google-icon' >Google</button>
+        <button className='google-icon'>
+          <img src={googleImg} alt='googleicon'/>
+          Google
+        </button>
         <SummaryDisplay count={this.state.count} order={this.state.order} onClick={this.onClick} submitData={this.submitData} handleChange={this.handleChange}/>
         <OrderItem totalCount = {this.state} order={this.state.order} deleteData={this.deleteData}/>
       </div>
