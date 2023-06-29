@@ -122,6 +122,27 @@ class TotalDisplay extends Component{
       });
   }
 
+  getGoogle() {
+    const rootUrl = 'https://accounts.google.com/o/oauth2/v2/auth';
+    
+    const options = {
+      redirect_uri: 'http://localhost:8080',
+      client_id:'809199786173-0lcej7v2lhjv8j2g9tkbs8t72oe7g8sl.apps.googleusercontent.com',
+      access_type:'offline',
+      response_type: 'code',
+      prompt: 'consent',
+      scope: [
+        'https://www.googleapis.com/auth/userinfo.profile',
+        'https://www.googleapis.com/auth/userinfo.email',
+      ].join(' '),
+    };
+    const qs = new URLSearchParams(options);
+    const url = `${rootUrl}?${qs.toString()}`;
+
+    const strWindowsFeatures = 'toolbar=no, menubar=no, width=600, height=700, top=100, left=800';
+    window.open(url, '_self', strWindowsFeatures);
+  }
+
 
 
 
@@ -129,7 +150,7 @@ class TotalDisplay extends Component{
   render(){
     return(
       <div className='outside_container'>
-        <button className='google-icon'>
+        <button className='google-icon'  onClick={this.getGoogle} >
           <img src={googleImg} alt='googleicon'/>
           Google
         </button>
