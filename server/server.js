@@ -4,6 +4,7 @@ const path = require('path');
 const PORT = 3000;
 const orderRoute = require('./routes/orders');
 const updateRoute = require('./routes/update');
+const loginRoute = require('./routes/logins');
 
 
 app.use(express.json());
@@ -15,6 +16,7 @@ app.get('/',(req,res) => {
   res.status(200).sendFile(path.resolve(__dirname,'../src/index.html'));
 });
 
+app.use('/userlogin', loginRoute);
 app.use('/orders', orderRoute);
 app.use('/update',updateRoute);
 

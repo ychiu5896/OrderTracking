@@ -67,7 +67,7 @@ class TotalDisplay extends Component{
     const code = param.get('code');
      
     if(code){
-      fetch('/googleauth',{
+      fetch('/userlogin',{
         method:'POST',
         headers:{
           'Content-Type':'Application/JSON'
