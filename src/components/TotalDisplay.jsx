@@ -61,6 +61,24 @@ class TotalDisplay extends Component{
         });
       })
       .catch((err) => console.log('Component Did not Mount, get Order ran into an error:',err));
+
+    const windowUrl = window.location.search;
+    const param = new URLSearchParams(windowUrl);
+    const code = param.get('code');
+     
+    if(code){
+      fetch('/googleauth',{
+        method:'POST',
+        headers:{
+          'Content-Type':'Application/JSON'
+        },
+        body: JSON.stringify({code:code})
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data))
+        .catch((err) => console.log('error in fetch request for oauth'));
+    }
+
   }
 
   totalCount (value){
